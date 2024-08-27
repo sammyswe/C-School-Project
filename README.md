@@ -122,6 +122,20 @@ struct Grade{
 };
 
 
+load_data.c - implements functionality allowing user to load database with predetermined set of values for testing purposes
+
+
+
+[headers]
+
+All files in this section will be header files.
+
+
+[data]
+
+All files in this section will contain data which will be used by load_data.c to fill the database up.
+
+
 
 3. Complete later
 4. complete later
