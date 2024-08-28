@@ -40,7 +40,7 @@ Contents:
         student.c
         teacher.c
         subject.c
-        grade.c
+        enrollment.c
         load_data.c
     /headers/ 
         student.h
@@ -55,6 +55,11 @@ Contents:
 
 
 2. What will each file do, how will it achieve this. 
+
+Data will be organised similar to a linked list. 
+
+Each student will point to an array, which contains pointers to subject structs.
+
 
 README.md - contains plan and instructions on use of the softwares features
 MAKEFILE - Will compile all parts of the program with different flags to allow user to load appropriate data.
@@ -75,11 +80,11 @@ Handles assigning subjects to students.
 Function to ensure ID is unique.
 
 Struct Student {
-    int id;
-    char name[50];
-    Subject **subjects; points to an array of subjects.
-    int subject_count;
-}Student;
+    short id;
+    char* name;
+    Enrollment enrollments*; points to an array of enrollment pointers
+    student* next;
+}
 
 
 
@@ -91,9 +96,10 @@ Manages the relationship between teachers and subjects.
 Function to ensure ID is unique
 
 struct Teacher {
-    int id;
-    char name[50];
-    Subject *subject;  // Points to the subject taught by the teacher (only one subject)
+    short id;
+    char* name
+    Subject* subjects
+    Teacher* next;
 };
 
 subjects.c - implements functions to manage subjects **FR5 & FR6**
@@ -104,21 +110,32 @@ Handles the enrollment of students in subjects.
 Function to ensure that the subject is
 
 struct Subject {
-    int id;
-    char name[50];
-    Teacher *teacher;       // Pointer to the Teacher who teaches this subject
-    Student **students;     // Pointer to an array of pointers to Students enrolled
-    int student_count;     
+    short id;
+    char* name;
+    Teacher *teacher;       
+    Enrollment *enrollments;     
+    Subject *next;     
 
 };
 
-grades.c - implements functions to add and receive **FR4 & FR7**
+each subject is associated with exactly one teacher
 
 
-struct Grade{
+Subject struct maintains a linked list of Enrollment structs - this will allow for FR5, finding the students which study a specific subject. 
+It will also allow for FR6 - finding which teacher teaches a specific subject. 
+
+
+
+Enrollments.c - implements functions to add and receive student enrollment in classes and store grades **FR4 & FR7**
+
+Each Student struct contains a list of pointer to a linked list of Enrollment structs - this shows what subject the student is enrolled in.
+
+
+struct Enrollment{
     Student *student;   // Pointer to the Student who received the grade
     Subject *subject;   // Pointer to the Subject the grade is for
-    char grade[3];      
+    char grade[3]; 
+    Enrollment* next;     
 };
 
 
@@ -135,7 +152,11 @@ All files in this section will be header files.
 
 All files in this section will contain data which will be used by load_data.c to fill the database up.
 
+All data structures are linked list.
+Data structures have relationships with eachother facilitated by pointers.
 
 
 3. Complete later
 4. complete later
+
+
