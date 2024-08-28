@@ -42,6 +42,7 @@ Contents:
         subject.c
         enrollment.c
         load_data.c
+        linked_list.c
     /headers/ 
         student.h
         teacher.h
@@ -153,6 +154,14 @@ load_data.c - implements functionality allowing user to load database with prede
 linked_list.c - contains various linked list operations e.g. add, retrieve by field, delete. 
 linked list will create a node that has a next pointer and a value.
 
+linked_list.c - contains basic linked list operations.
+this file will allow append, insert, delete operaitons from the linked list.
+
+struct node_t {
+    
+    Struct* entity
+    struct node_t* next
+}
 [headers]
 
 All files in this section will be header files.
