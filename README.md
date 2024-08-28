@@ -72,14 +72,15 @@ Includes the main menu loop - running this will allow the user to use the CLI
 Calls functions from other modules based on user input.
 
 
+student.c - Implements functions to manage students **FR2** stored in a linked list.
 
-student.c - Implements functions to manage students **FR2**
-
-Functions to add, delete, and retrieve students.
-Handles assigning subjects to students.
+Functions to 
+add - adds a student onto the end of the list.
+delete - removes a student from end of list and updates 
+retrieve - cycle through links until it reaches matching id, output id to the screen.
 Function to ensure ID is unique.
 
-Struct Student {
+Struct Student { 
     short id;
     char* name;
     Enrollment enrollments*; points to an array of enrollment pointers
@@ -88,12 +89,16 @@ Struct Student {
 
 
 
+
+void pointers
+
+
 teacher.c - Implements functions to manage teachers **FR3**
 
 Functions to add, delete, and retrieve teachers.
 Handles assigning subjects to teachers.
 Manages the relationship between teachers and subjects.
-Function to ensure ID is unique
+Function to ensure ID is unique - cycles linked list and checks to see if there is any matching IDs
 
 struct Teacher {
     short id;
@@ -138,10 +143,15 @@ struct Enrollment{
     Enrollment* next;     
 };
 
+functions -
+
+noDoubleEnrollment - When new enrollment is created, checks to ensure that the student subject pairing doesnt already exist.
+
 
 load_data.c - implements functionality allowing user to load database with predetermined set of values for testing purposes
 
-
+linked_list.c - contains various linked list operations e.g. add, retrieve by field, delete. 
+linked list will create a node that has a next pointer and a value.
 
 [headers]
 
