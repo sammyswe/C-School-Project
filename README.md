@@ -36,7 +36,7 @@ Contents:
     README.md
     MAKEFILE
     /src/
-        main.c
+        runDB.c
         student.c
         teacher.c
         subject.c
@@ -44,11 +44,13 @@ Contents:
         load_data.c
         linked_list.c
     /headers/ 
+        runDB.h
         student.h
         teacher.h
         subject.h 
         grade.h
         load_data.h 
+        linked_list.h
     /data/
         students.txt
         teachers.txt
