@@ -1,7 +1,7 @@
 #ifndef __TEACHER_H__
 #define __TEACHER_H__
 
-struct Subject;
+struct Subject; //forward declaration
 
 struct Teacher{
     short id;

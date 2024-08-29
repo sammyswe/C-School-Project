@@ -6,7 +6,7 @@ int displayMainMenu(){
         
         int choice;
         int result;
-
+        printf("======================== Main Menu ========================\n");
         printf("\nPlease Select an option:\n\n");
         printf("1. Student operations\n");
         printf("2. Subject operations\n");
@@ -14,16 +14,16 @@ int displayMainMenu(){
         printf("4. Grade operations\n");
         printf("5. Load data\n");
         printf("6. Quit\n\n");
-        printf("Choice: ");
+        printf("Choice:");
+        result = scanf("%d", &choice); //main menu formatting+input sanitising
 
-        result = scanf("%d", &choice); 
-        if (result != 1) {
+
+        if (result != 1) { //happens when input is not a number
             while (getchar() != '\n');  // Read and discard characters until a newline is found
             printf("\nInvalid selection, please select a valid option.\n");
-            return displayMainMenu();
+            return displayMainMenu(); 
         }
-     
-        if (choice>6 || choice<1){
+        if (choice>6 || choice<1){ //when input is outside of the required range
             printf("\nInvalid selection, please select a valid option.\n");
             return displayMainMenu();
         }else{
@@ -37,7 +37,9 @@ int displayMainMenu(){
 int displayStudentMenu(){
         
         int choice; 
-
+        int result;
+    
+        printf("\n======================= Student Menu =======================\n");
         printf("\nPlease Select an option:\n\n");
         printf("1. View all Students\n");
         printf("2. Add Student\n");
@@ -46,9 +48,14 @@ int displayStudentMenu(){
         printf("5. Return to Main Menu\n");
         printf("\nChoice: ");
 
-        scanf("%d", &choice);
+       result = scanf("%d", &choice);
+        if (result != 1) {
+            while (getchar() != '\n');  // Read and discard characters until a newline is found
+            printf("\nInvalid selection, please select a valid option.\n");
+            return displayStudentMenu();
+        }
 
-        if (choice>5 || choice<1){
+        if (choice>5 || choice<1){//outside of range
             printf("Invalid selection.\n");
             return displayStudentMenu();
         }else{

@@ -2,7 +2,7 @@
 #define __SUBJECT_H__
 
 
-struct Teacher;
+struct Teacher; //forward declarations
 struct Enrollment;
 
 struct Subject{

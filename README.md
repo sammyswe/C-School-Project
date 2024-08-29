@@ -42,7 +42,6 @@ Contents:
         subject.c
         enrollment.c
         load_data.c
-        linked_list.c
     /headers/ 
         runDB.h
         student.h
@@ -50,7 +49,6 @@ Contents:
         subject.h 
         grade.h
         load_data.h 
-        linked_list.h
     /data/
         students.txt
         teachers.txt
@@ -91,9 +89,6 @@ Struct Student {
 }
 
 
-
-
-void pointers
 
 
 teacher.c - Implements functions to manage teachers **FR3**
