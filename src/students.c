@@ -65,6 +65,7 @@ struct Student* findTail(struct Student* head){ //finds linked list tail
 }
 
 void displayStudentByID(){ //retrieves user input of student ID and searches for student with this ID, before displauing their details)
+
     printf("\n==================== Find Student By ID ====================\n");
     short id;
     int result;
@@ -97,4 +98,58 @@ void displayStudentByID(){ //retrieves user input of student ID and searches for
         return displayStudentByID(); //calls itself again
     }
 
+}
+
+void clearInputBuffer() { //Clears input buffer to allow correct reading of string
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); //removes characters that are not new line or EOF 
+}
+
+void displayStudentByName() { //Takes user input of name and compares to name fields in linked list, outputting full student struct if match found
+    printf("\n=================== Find Student By Name ===================\n");
+
+    char name[30];
+
+    while (1) {
+        printf("\nInput Student Name: ");
+
+        clearInputBuffer(); //had to do this otherwise it was reading the new line character
+
+        if (fgets(name, sizeof(name), stdin) != NULL) { //reads size of name from stdin
+            
+            name[strcspn(name, "\n")] = '\0'; //strips newline character from end of string and replaces with null terminator
+            //need to do this for correct comparison of strings
+            if (strlen(name) == 0) {
+                printf("You must enter a name. Please try again.\n"); //no name entered -> try again.
+                continue;
+            }
+        } else {
+            // If fgets fails, clear the input buffer and try again
+            while (getchar() != '\n');
+            printf("Invalid input, please input a valid name.\n");
+            continue;
+        }
+
+        // Once valid string has been input, search linked list
+        struct Student* temp = head;
+        short found = 0;
+
+        while (temp != NULL && found == 0) { 
+            if (strcmp(temp->name, name) == 0) { // strcomp compares the input string to the name field of student struct
+                printf("ID: %d \n", temp->id);
+                printf("Name: %s \n", temp->name);
+                printf("Enrollment Address: %p \n", (void*)temp->enrollments);
+                printf("Next Address: %p \n\n", (void*)temp->next);
+                found = 1; // Mark as found
+            }
+            temp = temp->next;
+        }
+
+        if (found == 0) { // If no matching name was found
+            printf("Student not found, please try a different name.\n");
+            continue; // Reprompt for input.
+        } else {
+            break; // exit loop once student found by name
+        }
+    }
 }

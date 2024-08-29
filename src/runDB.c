@@ -17,7 +17,7 @@ int loop = 1;
             if(studentMenuNavigate==1){displayAllStudents();}
             if(studentMenuNavigate==2){addStudent();}
             if(studentMenuNavigate==3){displayStudentByID();}
-            if(studentMenuNavigate==4){RetrieveStudentByName();}//todo
+            if(studentMenuNavigate==4){displayStudentByName();}
             if(studentMenuNavigate==5){displayMainMenu();}
         }
 
