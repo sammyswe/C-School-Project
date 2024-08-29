@@ -5,6 +5,7 @@
 int displayMainMenu(){
         
         int choice;
+        int result;
 
         printf("\nPlease Select an option:\n\n");
         printf("1. Student operations\n");
@@ -15,7 +16,12 @@ int displayMainMenu(){
         printf("6. Quit\n\n");
         printf("Choice: ");
 
-        scanf("%d", &choice); 
+        result = scanf("%d", &choice); 
+        if (result != 1) {
+            while (getchar() != '\n');  // Read and discard characters until a newline is found
+            printf("\nInvalid selection, please select a valid option.\n");
+            return displayMainMenu();
+        }
      
         if (choice>6 || choice<1){
             printf("\nInvalid selection, please select a valid option.\n");
